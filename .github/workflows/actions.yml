@@ -12,8 +12,14 @@ jobs:
         run: |
           pwd
           ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token}}"
+          # git clone git@github:$GITHUB_REPOSITORY
+          # git checkout $GITHUB_SHA 
       - name: Checkout
-        uses: actions/checkout@v2.3.4    
+        uses: actions/checkout@v2.3.4 # clone this repo and can uses and show all files with ls -a   
       - name: List files After
         run: |
           pwd
