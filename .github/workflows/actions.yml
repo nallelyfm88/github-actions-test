@@ -2,14 +2,11 @@ name: Actions Workflow
 
 
 on: 
-  schedule:
-  # 0/15 * * * * every 15 minutes (1/5min)-hr-day of month-month-day
-    - cron: "0/5 * * * *" # if we put 1 * * * * means every minute in hrs occurs 12:01.
+  schedule:  
+    - cron: "0/5 * * * *"
     - cron: "0/6 * * * *"
-  # push:
   pull_request:
     types: [closed, assigned, opened, reopened]
-# on: [push, pull_request]
 
 
 jobs:
