@@ -3,7 +3,7 @@ name: Actions Workflow
 
 on: 
   schedule:
-  # 0/15 * * * * every 15 minutes min-hr-day of month-month-day
+  # 0/15 * * * * every 15 minutes (1/5min)-hr-day of month-month-day
     - cron: "0/5 * * * *" # if we put 1 * * * * means every minute in hrs occurs 12:01.
     - cron: "0/6 * * * *"
   # push:
