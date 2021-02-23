@@ -11,9 +11,13 @@ jobs:
       - name: List File
         run: |
           pwd
-          ls
+          ls -a
       - name: Checkout
-        uses: actions/checkout@v2.3.4          
+        uses: actions/checkout@v2.3.4    
+      - name: List files After
+        run: |
+          pwd
+          ls -a     
       - name: Simple JS Action
         id: greet
         uses: actions/hello-world-javascript-action@v1.1 # branch, version or specific commit 8f51b5e7e4aeae2a0fe52d3d718a8c402c4da621
