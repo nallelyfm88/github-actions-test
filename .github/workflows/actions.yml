@@ -6,16 +6,14 @@ on:
     types: [build]
   pull_request:
     types: [closed, assigned, opened, reopened]
-# on: [push, pull_request]
-#  schedule:  
-  # - cron: "0/5 * * * *"
-  # - cron: "0/6 * * * *"
 
 
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: payload
+        run: echo ${{ github.event.client_payload.env}}
       - name: List File
         run: |
           pwd
