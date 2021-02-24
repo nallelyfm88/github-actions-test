@@ -10,9 +10,22 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest] # for run in diferent operation systems
         node_version: [6, 8, 10]
+        include: # add ubuntu node 4 in matrix
+          - os: ubuntu-latest
+            node-version: 4
+          - os: ubuntu-latest # add to matrix if ubuntu node v8 exist a variable is ubuntu to true
+            node-version: 8
+            is_ubuntu_8: "true"
+        exclude: # exclude ubuntu node v6 and macos node 8 so just run 6 times not 9
+          - os: ubuntu-latest
+            node-version: 6
+          - os: macos-latest
+            node-version: 8
     runs-on: ${{ matrix.os }}
       #fail-fast: true # if somethin failures do the next 
       # max-parallel: 2 # can limit jobs in paralel
+    env:
+      IS_UBUNTU_8: ${{ matrix.is_ubuntu_8 }}
     steps:
       - name: Log node node version
         run: node -v
@@ -20,4 +33,6 @@ jobs:
         with:
           node-version: ${{ matrix.node_version}}
       - name: Log node node version
-        run: node -v
+        run: |
+          node -v
+          echo $IS_UBUNTU_8
