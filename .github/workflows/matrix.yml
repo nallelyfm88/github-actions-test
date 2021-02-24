@@ -1,7 +1,7 @@
 name: Matrix
 
 
-on: push
+on: pull_request # for not doing anything since do a pull_request
 
 
 jobs:
