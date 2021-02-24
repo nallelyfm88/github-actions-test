@@ -25,7 +25,7 @@ jobs:
        #   node -v
         #  cat /etc/os-release
       - name: Get users
-        run: curl http://localhost:3001/api/user
+        run: curl http://localhost:3001/api/users
 
 
 
