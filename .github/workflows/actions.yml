@@ -2,10 +2,19 @@ name: Actions Workflow
 
 
 on: 
-  repository_dispatch:  
-    types: [build]
-  pull_request:
-    types: [closed, assigned, opened, reopened]
+  push: # pull_request
+    branches: # branches-ignore i cant use bouth at the same time
+      - master
+      - 'feature/*' # matches feature/featureA,B,C (patters filters)
+      - 'feature/**' # mathes feature/feat/a
+      - '!feature/featc' # ! ignore this pattern
+    tags: # tags-ignore
+      - v1.*
+    paths: # paths-ignore
+      - '**.js' # any javascript file
+      - '!filename.js' # ignore this file !
+      - 'docs/**' # any file inside docs
+
 
 
 jobs:
