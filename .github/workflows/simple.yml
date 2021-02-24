@@ -7,10 +7,13 @@ on: [push]
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
+    # timeout-minutes: 360 # job can take 360 min if takes more will be cancelled
     steps:
       - name: echo a string
         run: echo "Hello World"
+        # continue-on-error: true  # insted (if) u can use (continue-on-error)
       - name: multiline script
+        if: failure()
         run: |
           node -v
           npm -v
